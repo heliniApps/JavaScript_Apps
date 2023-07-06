@@ -83,26 +83,16 @@ class Candle {
         let isValidColorType = false;
         let isValidColorValue = false;
 
-        console.info("colorType:", colorType);
-        console.info("colorValue:", colorValue);
-
         Object.keys(ColorType).forEach((key) => {
-            console.info("key:", key);
             if (colorType === ColorType[key]) {
                 isValidColorType = true;
             }
         });
         Object.keys(Color).forEach((key) => {
-            console.info("Color Key:", key);
-            console.info("Color[key]:", Color[key]);
-
             if (colorValue === Color[key]) {
                 isValidColorValue = true;
             }
         });
-
-        console.info("isValidColorType: ", isValidColorType);
-        console.info("isValidColorValue: ", isValidColorValue);
 
         if (isValidColorType && isValidColorValue) {
             this.#setColor(colorType, colorValue);
@@ -179,19 +169,32 @@ class Candle {
         return false;
     }
 
-    standingSpace() {
+    #calcVolume() {
         const pi = 3.14;
-        return pi * this.size.radius * this.size.radius;
+        let baseArea = pi * this.size.radius * this.size.radius;
+
+        return baseArea * this.size.height;
     }
 
     getSizeCategory() {
-        if (this.size.height < 15) {
-            return "Small";
-        } else if (this.size.height >= 15 && this.size.height < 30) {
-            return "Medium";
-        } else if (this.size.height >= 30) {
-            return "Large";
+        let candleVolume = this.#calcVolume();
+        let category = null;
+
+        switch (true) {
+            case candleVolume < 423:
+                category = "Small";
+                break;
+            case candleVolume >= 423 && candleVolume < 1507:
+                category = "Medium";
+                break;
+            case candleVolume >= 1507:
+                category = "Large";
+                break;
+            default:
+                category = "Not Applicable";
+                break;
         }
+        return category;
     }
 }
 

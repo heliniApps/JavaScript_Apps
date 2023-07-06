@@ -1,9 +1,9 @@
 const ScentType = Object.freeze({
-    Unscented: "Unscented",
-    WoodlandRose: "Woodland Rose",
-    ToastedVanilla: "Toasted Vanilla",
-    OceanBreeze: "Ocean Breeze",
-    WildBerry: "Wild Berry",
+    Unscented: Symbol("Unscented"),
+    WoodlandRose: Symbol("Woodland Rose"),
+    ToastedVanilla: Symbol("Toasted Vanilla"),
+    OceanBreeze: Symbol("Ocean Breeze"),
+    WildBerry: Symbol("Wild Berry"),
 });
 
 const ColorType = Object.freeze({

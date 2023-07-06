@@ -8,7 +8,7 @@ import {
     SurfaceDesign,
 } from "./enums/Enums.js";
 
-export const RoseCandle = new Candle(
+const RoseCandle = new Candle(
     "RS102",
     "Pink Rose",
     ScentType.WoodlandRose,
@@ -17,21 +17,25 @@ export const RoseCandle = new Candle(
     ShapeType.Pillar,
     SurfaceDesign.Smooth,
     10,
-    5,
+    3,
     [Occasion.Christmas, Occasion.HomeDecor],
     "./resources/rose_candle.jpeg"
 );
 
-export const VanillaCandle = new Candle(
+const VanillaCandle = new Candle(
     "VN202",
-    "Sweet Vanilla",
+    "Vanilla Cream",
     ScentType.ToastedVanilla,
     ColorType.SolidColor,
     Color.OffWhite,
     ShapeType.Pillar,
     SurfaceDesign.Grooved,
-    10,
-    3,
-    [Occasion.Christmas, Occasion.HomeDecor],
+    20,
+    4,
+    [Occasion.Wedding, Occasion.Christmas],
     "./resources/vanilla_candle.webp"
 );
+
+const candleObjectArray = [RoseCandle, VanillaCandle];
+
+export default candleObjectArray;
